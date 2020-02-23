@@ -1,0 +1,51 @@
+http://localhost:8080/base-jsf-webapp/api/products/all
+
+###
+
+DELETE http://localhost:8080/base-jsf-webapp/api/products/16/id
+
+###
+
+PUT http://localhost:8080/base-jsf-webapp/api/products/new
+Content-Type: application/json
+
+{
+    "description": "REST test",
+    "name": "test",
+    "price": 5100.00
+  }
+
+###
+POST http://localhost:8080/base-jsf-webapp/api/products/update
+Content-Type: application/json
+
+{
+  "description": "updated REST test",
+  "id": 17,
+  "name": "test",
+  "price": 5100.00
+}
+
+###
+# curl "http://localhost:8080/base-jsf-webapp/api/products/all" -H "Connection: keep-alive" -H "Cache-Control: max-age=0" -H "Upgrade-Insecure-Requests: 1" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36" -H "Sec-Fetch-Dest: document" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-User: ?1" -H "Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,es;q=0.6" -H "Cookie: JSESSIONID=WeYTPbLKe1tCQuW5cumQVgV1H6ILZNq-bPRWohkQ.laptop-2si702on; _ga=GA1.1.202621192.1576333011" --compressed
+GET http://localhost:8080/base-jsf-webapp/api/products/all
+Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36
+Sec-Fetch-Dest: document
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Sec-Fetch-Site: none
+Sec-Fetch-Mode: navigate
+Sec-Fetch-User: ?1
+Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,es;q=0.6
+Cookie: JSESSIONID=WeYTPbLKe1tCQuW5cumQVgV1H6ILZNq-bPRWohkQ.laptop-2si702on; _ga=GA1.1.202621192.1576333011
+
+###
+
+###
+# curl "http://localhost:8080/base-jsf-webapp/api/products/all" -H "Connection: keep-alive" -H "Cache-Control: max-age=0" -H "Upgrade-Insecure-Requests: 1" -H "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36" -H "Sec-Fetch-Dest: document" -H "Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9" -H "Sec-Fetch-Site: none" -H "Sec-Fetch-Mode: navigate" -H "Sec-Fetch-User: ?1" -H "Accept-Language: ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7,es;q=0.6" -H "Cookie: JSESSIONID=WeYTPbLKe1tCQuW5cumQVgV1H6ILZNq-bPRWohkQ.laptop-2si702on; _ga=GA1.1.202621192.1576333011" --compressed
+GET http://localhost:8080/base-jsf-webapp/jms11
+
+###
+

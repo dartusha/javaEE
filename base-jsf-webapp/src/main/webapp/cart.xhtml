@@ -1,0 +1,64 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Cart</title>
+</h:head>
+
+<ui:include src="WEB-INF/menu.xhtml">
+    <ui:param name="title" value="TEST SHOP"></ui:param>
+</ui:include>
+<h:body>
+
+<div class="container">
+CART
+    <h:form id="cartForm">
+    <h:commandButton value="Order" styleClass="btn btn-success" action="#{productController.createProduct()}">
+    </h:commandButton>
+
+    <h:dataTable value="#{cartController.cartList}" var="cart" styleClass="table">
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{cart.value.productName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Count</f:facet>
+                <div>
+                    <h:inputText p:type="number" id="cnt" name="cnt" value="#{cart.value.cnt}"
+                                 required="true" requiredMessage="Count is required">
+                        <f:converter converterId="javax.faces.BigDecimal"></f:converter>
+                        <f:validateLongRange minimum="1" maximum="100000" />
+                        <f:ajax event="change" listener="#{cartController.changeCnt(cart.value)}" render="cartForm" />
+                    </h:inputText>
+                </div>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{cart.value.amount}
+            </h:column>
+            <h:column>
+            <f:facet name="header">Total</f:facet>
+            #{cart.value.totalAmount}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandButton value="Delete" action="#{cartController.deleteCart(cart.key)}" styleClass="btn btn-danger">
+                    <f:ajax event="click" render="cartForm"/>
+                </h:commandButton>
+            </h:column>
+            <f:facet name="footer">
+            Total: #{cartController.sm}
+            </f:facet>
+    </h:dataTable>
+
+     <h:commandButton value="Empty cart" styleClass="btn btn-success" action="#{cartController.emptyCart}">
+     </h:commandButton>
+    </h:form>
+</div>
+
+</h:body>
+</html>

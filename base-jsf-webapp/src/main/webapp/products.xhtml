@@ -1,0 +1,54 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Products</title>
+</h:head>
+
+<ui:include src="WEB-INF/menu.xhtml">
+    <ui:param name="title" value="TEST SHOP"></ui:param>
+</ui:include>
+
+<h:body>
+    <div class="container">
+    PRODUCTS
+        <h:form id="productForm">
+        <h:commandButton value="New product" styleClass="btn btn-success" action="#{productController.createProduct()}">
+        </h:commandButton>
+
+        <h:dataTable value="#{productController.allProducts}" var="product" styleClass="table">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{product.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                #{product.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Description</f:facet>
+                #{product.description}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{product.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Action</f:facet>
+                <h:commandButton value="Buy" action="#{cartController.buyProduct(product)}" styleClass="btn btn-primary">
+                </h:commandButton>
+                <h:commandButton value="Edit" action="#{productController.editProduct(product)}" styleClass="btn btn-success">
+                </h:commandButton>
+                <h:commandButton value="Delete" action="#{productController.deleteProduct(product)}" styleClass="btn btn-danger">
+                <f:ajax event="click" render="productForm"/>
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+        </h:form>
+    </div>
+
+</h:body>
+</html>

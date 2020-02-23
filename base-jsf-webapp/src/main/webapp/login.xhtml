@@ -1,0 +1,33 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <h:outputStylesheet library="css" name="style.css"/>
+    <title>Login</title>
+</h:head>
+
+<ui:include src="WEB-INF/menu.xhtml">
+    <ui:param name="title" value="TEST SHOP"></ui:param>
+</ui:include>
+
+<h:body>
+
+    <div class="container">
+        <form action="j_security_check">
+            <div>
+                <h:outputLabel value="login" for="j_username"/>
+                <h:inputText id="j_username" name="j_username" value="#{userController.user.login}"
+                             required="true" placeholder="Enter login" requiredMessage="login is required"/>
+            </div>
+            <div>
+                <h:outputLabel value="password" for="j_password"/>
+                <h:inputText id="j_password" name="j_password" placeholder="Enter password" value="#{userController.user.password}"
+                />
+            </div>
+            <button formmethod="post">Login</button>
+        </form>
+    </div>
+</h:body>
+
+</html>
